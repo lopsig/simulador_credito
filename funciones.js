@@ -74,3 +74,15 @@ const showSpan = (idComponent, value) => {
   let component = document.getElementById(idComponent);
   component.textContent = "USD " + value;
 };
+
+const showSpanCredit = (idComponent, value) => {
+  let component = document.getElementById(idComponent);
+
+  if (value == true) {
+    component.textContent = "CRÉDITO APROBADO";
+  } else {
+    component.textContent = "CRÉDITO RECHAZADO";
+
+  }
+  
+};
