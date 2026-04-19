@@ -85,6 +85,10 @@ const showSpanCredit = (idComponent, value) => {
   
 };
 
+const clearInput = (idComponent) => {
+  document.getElementById(idComponent).value = "";
+};
+
 
 const validateInputs = () => {
   let valid = true;
