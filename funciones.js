@@ -40,12 +40,8 @@ const calculateMonthlyPayment = (total, term) => {
 }
 
 const approveCredit = (abilityPay, monthlyPayment) => {
-  if (abilityPay > monthlyPayment) {
-    return true
-  } else {
-    return false
-  }
 
+  return parseFloat(abilityPay) > parseFloat(monthlyPayment)
 }
 
 //UTIL FUNCTIONS
@@ -80,8 +76,10 @@ const showSpanCredit = (idComponent, value) => {
 
   if (value == true) {
     component.textContent = "CRÉDITO APROBADO";
+    component.className = "estado-badge aprobado"; 
   } else {
     component.textContent = "CRÉDITO RECHAZADO";
+    component.className = "estado-badge rechazado";
 
   }
   

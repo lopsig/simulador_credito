@@ -24,6 +24,7 @@ const calculate = () => {
   showSpan("spnCuotaMensual", monthlyPayment);
 
   let approveCredits = approveCredit(abilityPay, monthlyPayment)
+  console.log(approveCredits)
   showSpanCredit("spnEstadoCredito", approveCredits);
 
 };

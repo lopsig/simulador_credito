@@ -1,49 +1,186 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Crédito</title>
-    <link rel="stylesheet" href="simulador.css">
-    <script src="funciones.js"></script>
-    <script src="simulador.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Crédito — Banco Andina</title>
+  <link rel="stylesheet" href="simulador.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <script src="funciones.js"></script>
+  <script src="simulador.js"></script>
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>Simulador de Crédito</h1>
-
-        <h2>Datos financieros</h2>
-        <label for="txtIngresos">Ingresos:</label>
-        <input type="text" id="txtIngresos">
-
-        <label for="txtEgresos">Egresos:</label>
-        <input type="text" id="txtEgresos">
-
-        <p>Disponible: <span id="spnDisponible"></span></p>
-        <p>Capacidad de pago mensual: <span id="spnCapacidadPago"></span></p>
-
-        <h2>Solicitud de crédito</h2>
-        <label for="txtMonto">Monto:</label>
-        <input type="text" id="txtMonto">
-
-        <label for="txtPlazo">Plazo en años:</label>
-        <input type="text" id="txtPlazo">
-
-        <label for="txtTasaInteres">Tasa de interés:</label>
-        <input type="text" id="txtTasaInteres">
-
-        <p>Interés a pagar: <span id="spnInteresPagar"></span></p>
-        <p>Total préstamo: <span id="spnTotalPrestamo"></span></p>
-        <p>Cuota mensual: <span id="spnCuotaMensual"></span></p>
-        <p>Estado de crédito: <span id="spnEstadoCredito">ANALIZANDO...</span></p>
-
-        <div class="buttons">
-            <button onclick="calculate()" id="btnCalcularCredito">Calcular Crédito</button>
-            <button id="btnReiniciar">Reiniciar</button>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div class="logo">
+        <div class="logo-icono">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="28" height="28" rx="6" fill="#1a3a6b" />
+            <path d="M14 4L24 9V11H4V9L14 4Z" fill="white" />
+            <rect x="6" y="13" width="3" height="8" fill="white" />
+            <rect x="12.5" y="13" width="3" height="8" fill="white" />
+            <rect x="19" y="13" width="3" height="8" fill="white" />
+            <rect x="4" y="22" width="20" height="2" fill="white" />
+          </svg>
         </div>
+        <div class="logo-texto">
+          <span class="logo-nombre">Banco Andina</span>
+          <span class="logo-slogan">Tu futuro, nuestra misión</span>
+        </div>
+      </div>
+      <div class="navbar-tag">Banca Digital</div>
     </div>
+  </header>
 
+  <!-- HERO STRIP -->
+  <div class="hero-strip">
+    <div class="hero-inner">
+      <span class="hero-titulo">Simulador de Crédito</span>
+      <span class="hero-desc">Calcula tu crédito de forma rápida y segura</span>
+    </div>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main">
+    <div class="container">
+
+      <!-- SECCIÓN 1: DATOS FINANCIEROS -->
+      <section class="seccion">
+        <div class="seccion-header">
+          <div class="seccion-icono">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="7" stroke="#1a3a6b" stroke-width="1.5" />
+              <path d="M8 5v4l2.5 2.5" stroke="#1a3a6b" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h2>Datos Financieros</h2>
+        </div>
+
+        <div class="campo-grupo">
+          <div class="campo">
+            <label for="txtIngresos">Ingresos Mensuales</label>
+            <div class="input-wrap">
+              <span class="input-prefix">USD</span>
+              <input type="text" id="txtIngresos" placeholder="0.00">
+            </div>
+          </div>
+          <div class="campo">
+            <label for="txtEgresos">Egresos Mensuales</label>
+            <div class="input-wrap">
+              <span class="input-prefix">USD</span>
+              <input type="text" id="txtEgresos" placeholder="0.00">
+            </div>
+          </div>
+        </div>
+
+        <div class="resultado-grid">
+          <div class="resultado-card">
+            <span class="resultado-label">Saldo Disponible</span>
+            <span class="resultado-valor" id="spnDisponible">—</span>
+          </div>
+          <div class="resultado-card">
+            <span class="resultado-label">Capacidad de Pago Mensual</span>
+            <span class="resultado-valor" id="spnCapacidadPago">—</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="separador"></div>
+
+      <!-- SECCIÓN 2: SOLICITUD -->
+      <section class="seccion">
+        <div class="seccion-header">
+          <div class="seccion-icono">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <rect x="2" y="2" width="12" height="12" rx="2" stroke="#1a3a6b" stroke-width="1.5" />
+              <path d="M5 8h6M5 5.5h6M5 10.5h4" stroke="#1a3a6b" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h2>Solicitud de Crédito</h2>
+        </div>
+
+        <div class="campo-grupo tres-col">
+          <div class="campo">
+            <label for="txtMonto">Monto Solicitado</label>
+            <div class="input-wrap">
+              <span class="input-prefix">USD</span>
+              <input type="text" id="txtMonto" placeholder="0.00">
+            </div>
+          </div>
+          <div class="campo">
+            <label for="txtPlazo">Plazo</label>
+            <div class="input-wrap">
+              <input type="text" id="txtPlazo" placeholder="0" style="padding-left:16px">
+              <span class="input-suffix">años</span>
+            </div>
+          </div>
+          <div class="campo">
+            <label for="txtTasaInteres">Tasa de Interés</label>
+            <div class="input-wrap">
+              <input type="text" id="txtTasaInteres" placeholder="0" style="padding-left:16px">
+              <span class="input-suffix">%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESULTADOS -->
+        <div class="tabla-resultados">
+          <div class="tabla-fila">
+            <span class="tabla-label">Interés a pagar</span>
+            <span class="tabla-valor" id="spnInteresPagar">—</span>
+          </div>
+          <div class="tabla-fila">
+            <span class="tabla-label">Total préstamo</span>
+            <span class="tabla-valor" id="spnTotalPrestamo">—</span>
+          </div>
+          <div class="tabla-fila">
+            <span class="tabla-label">Cuota mensual</span>
+            <span class="tabla-valor" id="spnCuotaMensual">—</span>
+          </div>
+        </div>
+
+        <!-- ESTADO CRÉDITO -->
+        <div class="estado-wrap">
+          <span class="estado-label">Estado de crédito</span>
+          <span class="estado-badge" id="spnEstadoCredito">ANALIZANDO...</span>
+        </div>
+      </section>
+
+      <!-- BOTONES -->
+      <div class="buttons">
+        <button onclick="calculate()" id="btnCalcularCredito" class="btn-primario">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="2" y="2" width="12" height="12" rx="2" stroke="white" stroke-width="1.5" />
+            <path d="M5 8h6M8 5v6" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          Calcular Crédito
+        </button>
+        <button id="btnReiniciar" class="btn-secundario">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8a5 5 0 1 0 1.5-3.5L3 3v3h3L4.5 4.5" stroke="#1a3a6b" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          Reiniciar
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>© 2026 Banco Andina. Todos los derechos reservados.</span>
+    <span class="footer-sep">|</span>
+    <span>Entidad regulada por la Superintendencia de Bancos</span>
+  </footer>
 
 </body>
+
 </html>

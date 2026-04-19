@@ -1,0 +1,4 @@
+1. Eres un experto Diseñador UX/UI dame un aspecto profesional y empresarial para este simulador de credito, incorpora un logo y utiliza el nombre de la entidad financiera como "Banco Andina", utiliza una paleta de colores azul con plomo. Recuerda hacerlo responsive
+
+2. Me gusta mucho pero quisiera cambiar algo.
+Cuando el credito se aprobado el "Estado de Credito" que se pinte de verde y si el credito es rechazado el "Estado de Credito" que se pinte de rojo.
