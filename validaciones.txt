@@ -1,0 +1,26 @@
+Quiero validar inputs
+Reglas:
+- Mostrar mensaje debajo de cada input
+- El mensaje deber ser de color rojo, en cursiva y en negrita
+Validaciones para Ingresos Mensuales y Egresos Mensuales:
+- Solo numeros
+- Maximo 5 digitos
+- No puede estar vacio
+Validaciones para Monto Solicitado:
+- Solo numeros enteros
+- Maximo 5 digitos
+- No puede estar vacio
+Validaciones para Plazo:
+- Solo numeros enteros
+- Maximo 1 digitos
+- No puede estar vacio
+Validaciones para Tasa de interes:
+- Solo numeros enteros
+- Maximo 2 digitos
+- No puede estar vacio
+Condiciones tecnicas:
+- Usar los Ids existentes
+- Las validaciones se ejecutarán una vez que presione el botón Calcular Credito
+- Mostrar los errores debajo del input
+
+Dame las partes que debo modificar del html, css o js

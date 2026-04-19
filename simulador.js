@@ -1,4 +1,6 @@
 const calculate = () => {
+  if (!validateInputs()) return;
+  
   let income = recoverFloat("txtIngresos");
   let expenses = recoverFloat("txtEgresos");
 

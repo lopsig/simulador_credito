@@ -2,3 +2,4 @@
 
 2. Me gusta mucho pero quisiera cambiar algo.
 Cuando el credito se aprobado el "Estado de Credito" que se pinte de verde y si el credito es rechazado el "Estado de Credito" que se pinte de rojo.
+

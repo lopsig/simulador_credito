@@ -70,12 +70,14 @@
               <span class="input-prefix">USD</span>
               <input type="text" id="txtIngresos" placeholder="0.00">
             </div>
+            <span class="error-msg" id="errIngresos"></span>
           </div>
           <div class="campo">
             <label for="txtEgresos">Egresos Mensuales</label>
             <div class="input-wrap">
               <span class="input-prefix">USD</span>
               <input type="text" id="txtEgresos" placeholder="0.00">
+              <span class="error-msg" id="errEgresos"></span>
             </div>
           </div>
         </div>
@@ -113,13 +115,15 @@
               <span class="input-prefix">USD</span>
               <input type="text" id="txtMonto" placeholder="0.00">
             </div>
+            <span class="error-msg" id="errMonto"></span>
           </div>
           <div class="campo">
-            <label for="txtPlazo">Plazo</label>
+            <label for="txtPlazo">Plazo (en años)</label>
             <div class="input-wrap">
               <input type="text" id="txtPlazo" placeholder="0" style="padding-left:16px">
               <span class="input-suffix">años</span>
             </div>
+            <span class="error-msg" id="errPlazo"></span>
           </div>
           <div class="campo">
             <label for="txtTasaInteres">Tasa de Interés</label>
@@ -127,6 +131,7 @@
               <input type="text" id="txtTasaInteres" placeholder="0" style="padding-left:16px">
               <span class="input-suffix">%</span>
             </div>
+            <span class="error-msg" id="errTasaInteres"></span>
           </div>
         </div>
 

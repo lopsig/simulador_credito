@@ -84,3 +84,70 @@ const showSpanCredit = (idComponent, value) => {
   }
   
 };
+
+
+const validateInputs = () => {
+  let valid = true;
+
+  const rules = [
+    {
+      id: "txtIngresos",
+      errId: "errIngresos",
+      onlyInt: false,
+      maxDigits: 5,
+    },
+    {
+      id: "txtEgresos",
+      errId: "errEgresos",
+      onlyInt: false,
+      maxDigits: 5,
+    },
+    {
+      id: "txtMonto",
+      errId: "errMonto",
+      onlyInt: true,
+      maxDigits: 5,
+    },
+    {
+      id: "txtPlazo",
+      errId: "errPlazo",
+      onlyInt: true,
+      maxDigits: 1,
+    },
+    {
+      id: "txtTasaInteres",
+      errId: "errTasaInteres",
+      onlyInt: true,
+      maxDigits: 2,
+    },
+  ];
+
+  rules.forEach((rule) => {
+    const input = document.getElementById(rule.id);
+    const errorSpan = document.getElementById(rule.errId);
+    const value = input.value.trim();
+    let mensaje = "";
+
+    if (value === "") {
+      mensaje = "Este campo no puede estar vacío.";
+    } else if (rule.onlyInt && !/^\d+$/.test(value)) {
+      mensaje = "Solo se permiten números enteros.";
+    } else if (!rule.onlyInt && !/^\d+(\.\d+)?$/.test(value)) {
+      mensaje = "Solo se permiten números.";
+    } else if (parseFloat(value) <= 0) {
+      mensaje = "El valor debe ser mayor a cero.";
+    } else if (
+      value.replace(".", "").replace(/\D/g, "").length > rule.maxDigits
+    ) {
+      mensaje = `Máximo ${rule.maxDigits} dígito(s) permitido(s).`;
+    }
+
+    errorSpan.textContent = mensaje;
+
+    if (mensaje !== "") {
+      valid = false;
+    }
+  });
+
+  return valid;
+};
