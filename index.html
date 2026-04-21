@@ -72,7 +72,8 @@
             </div>
             <span class="error-msg" id="errIngresos"></span>
           </div>
-          <div class="campo">
+
+          <!-- <div class="campo">
             <label for="txtEgresos">Egresos Mensuales</label>
             <div class="input-wrap">
               <span class="input-prefix">USD</span>
@@ -80,18 +81,49 @@
             </div>
             <span class="error-msg" id="errEgresos"></span>
           </div>
+        </div> -->
+
+        <div class="campo">
+          <label for="txtArriendo">Arriendo</label>
+          <div class="input-wrap">
+            <span class="input-prefix">USD</span>
+            <input type="text" id="txtArriendo" placeholder="0.00">
+          </div>
+          <span class="error-msg" id="errArriendo"></span>
+        </div>
+        
+        <div class="campo">
+          <label for="txtAlimentacion">Alimentación</label>
+          <div class="input-wrap">
+            <span class="input-prefix">USD</span>
+            <input type="text" id="txtAlimentacion" placeholder="0.00">
+          </div>
+          <span class="error-msg" id="errAlimentacion"></span>
+        </div>
+        
+        <div class="campo">
+          <label for="txtVarios">Varios</label>
+          <div class="input-wrap">
+            <span class="input-prefix">USD</span>
+            <input type="text" id="txtVarios" placeholder="0.00">
+          </div>
+          <span class="error-msg" id="errVarios"></span>
         </div>
 
-        <div class="resultado-grid">
-          <div class="resultado-card">
-            <span class="resultado-label">Saldo Disponible</span>
-            <span class="resultado-valor" id="spnDisponible">—</span>
-          </div>
-          <div class="resultado-card">
-            <span class="resultado-label">Capacidad de Pago Mensual</span>
-            <span class="resultado-valor" id="spnCapacidadPago">—</span>
-          </div>
-        </div>
+<div class="resultado-grid">
+  <div class="resultado-card">
+    <span class="resultado-label">Total Egresos</span>
+    <span class="resultado-valor" id="spnEgresos">—</span>
+  </div>
+  <div class="resultado-card">
+    <span class="resultado-label">Saldo Disponible</span>
+    <span class="resultado-valor" id="spnDisponible">—</span>
+  </div>
+  <div class="resultado-card">
+    <span class="resultado-label">Capacidad de Pago Mensual</span>
+    <span class="resultado-valor" id="spnCapacidadPago">—</span>
+  </div>
+</div>
       </section>
 
       <div class="separador"></div>
@@ -154,7 +186,7 @@
         <!-- ESTADO CRÉDITO -->
         <div class="estado-wrap">
           <span class="estado-label">Estado de crédito</span>
-          <span class="estado-badge" id="spnEstadoCredito">ANALIZANDO...</span>
+          <span class="estado-credito" id="spnEstadoCredito">ANALIZANDO...</span>
         </div>
       </section>
 

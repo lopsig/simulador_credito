@@ -2,7 +2,14 @@ const calculate = () => {
   if (!validateInputs()) return;
 
   let income = recoverFloat("txtIngresos");
-  let expenses = recoverFloat("txtEgresos");
+  // let expenses = recoverFloat("txtEgresos");
+  let arriendo = recoverFloat("txtArriendo");
+  let alimentacion = recoverFloat("txtAlimentacion");
+  let varios = recoverFloat("txtVarios");
+  let expenses = parseFloat(
+    calculateTotalExpenses(arriendo, alimentacion, varios),
+  );
+  showSpan("spnEgresos", expenses.toFixed(2));
 
   let balance = calculateAvailableBalance(income, expenses);
 
@@ -28,32 +35,39 @@ const calculate = () => {
   let approveCredits = approveCredit(abilityPay, monthlyPayment);
   console.log(approveCredits);
   showSpanCredit("spnEstadoCredito", approveCredits);
-};
+};;
 
 const restart = () => {
   // Limpiar inputs
   clearInput("txtIngresos");
-  clearInput("txtEgresos");
+  // clearInput("txtEgresos");
+  clearInput("txtArriendo");
+  clearInput("txtAlimentacion");
+  clearInput("txtVarios");
   clearInput("txtMonto");
   clearInput("txtPlazo");
   clearInput("txtTasaInteres");
 
   // Limpiar resultados
-  document.getElementById("spnDisponible").textContent = "—";
-  document.getElementById("spnCapacidadPago").textContent = "—";
-  document.getElementById("spnInteresPagar").textContent = "—";
-  document.getElementById("spnTotalPrestamo").textContent = "—";
-  document.getElementById("spnCuotaMensual").textContent = "—";
+  clearResults("spnDisponible");
+  clearResults("spnCapacidadPago");
+  clearResults("spnInteresPagar");
+  clearResults("spnTotalPrestamo");
+  clearResults("spnCuotaMensual");
+  clearResults("spnEgresos");
 
   // Resetear estado de crédito
-  const badge = document.getElementById("spnEstadoCredito");
-  badge.textContent = "ANALIZANDO...";
-  badge.className = "estado-badge";
+  const stateCredit = document.getElementById("spnEstadoCredito");
+  stateCredit.textContent = "ANALIZANDO...";
+  stateCredit.className = "estado-credito";
 
   // Limpiar mensajes de error
-  document.getElementById("errIngresos").textContent = "";
-  document.getElementById("errEgresos").textContent = "";
-  document.getElementById("errMonto").textContent = "";
-  document.getElementById("errPlazo").textContent = "";
-  document.getElementById("errTasaInteres").textContent = "";
+  clearErrors("errIngresos");
+  clearErrors("errEgresos");
+  clearErrors("errMonto");
+  clearErrors("errPlazo");
+  clearErrors("errTasaInteres");
+  clearErrors("errArriendo");
+  clearErrors("errAlimentacion");
+  clearErrors("errVarios");
 };

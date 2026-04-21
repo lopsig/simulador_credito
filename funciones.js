@@ -66,6 +66,19 @@ const recoverInt = (idComponent) => {
   return valueInt;
 };
 
+const clearInput = (idComponent) => {
+  document.getElementById(idComponent).value = "";
+};
+
+const clearResults = (idComponent) => {
+  document.getElementById(idComponent).textContent = "—";
+}
+
+const clearErrors = (idComponent) => {
+  document.getElementById(idComponent).textContent = "";
+}
+
+//showSpan Functions
 const showSpan = (idComponent, value) => {
   let component = document.getElementById(idComponent);
   component.textContent = "USD " + value;
@@ -76,18 +89,16 @@ const showSpanCredit = (idComponent, value) => {
 
   if (value == true) {
     component.textContent = "CRÉDITO APROBADO";
-    component.className = "estado-badge aprobado"; 
+    component.className = "estado-credito aprobado"; 
   } else {
     component.textContent = "CRÉDITO RECHAZADO";
-    component.className = "estado-badge rechazado";
+    component.className = "estado-credito rechazado";
 
   }
   
 };
 
-const clearInput = (idComponent) => {
-  document.getElementById(idComponent).value = "";
-};
+
 
 
 const validateInputs = () => {
@@ -100,12 +111,32 @@ const validateInputs = () => {
       onlyInt: false,
       maxDigits: 5,
     },
+    // {
+    //   id: "txtEgresos",
+    //   errId: "errEgresos",
+    //   onlyInt: false,
+    //   maxDigits: 5,
+    // },
+
     {
-      id: "txtEgresos",
-      errId: "errEgresos",
+      id: "txtArriendo",
+      errId: "errArriendo",
       onlyInt: false,
       maxDigits: 5,
     },
+    {
+      id: "txtAlimentacion",
+      errId: "errAlimentacion",
+      onlyInt: false,
+      maxDigits: 5,
+    },
+    {
+      id: "txtVarios",
+      errId: "errVarios",
+      onlyInt: false,
+      maxDigits: 5,
+    },
+
     {
       id: "txtMonto",
       errId: "errMonto",
@@ -154,4 +185,8 @@ const validateInputs = () => {
   });
 
   return valid;
+};
+
+const calculateTotalExpenses = (arriendo, alimentacion, varios) => {
+  return parseFloat(arriendo + alimentacion + varios).toFixed(2);
 };

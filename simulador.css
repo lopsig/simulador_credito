@@ -340,7 +340,7 @@ input::placeholder {
   letter-spacing: 0.5px;
 }
 
-.estado-badge {
+.estado-credito {
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -352,12 +352,12 @@ input::placeholder {
 }
 
 /* Estados dinámicos — aplícalos desde JS si quieres */
-.estado-badge.aprobado {
+.estado-credito.aprobado {
   background: var(--verde-bg);
   color: var(--verde);
 }
 
-.estado-badge.rechazado {
+.estado-credito.rechazado {
   background: var(--rojo-bg);
   color: var(--rojo);
 }
